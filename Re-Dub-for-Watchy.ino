@@ -2,9 +2,10 @@
 #include "background.h"
 #include "Technology40pt7b.h"
 #include "Technology18pt7b.h"
-        
+#include "settings.h"
 
-class WatchFace : public Watchy { //inherit and extend Watchy class
+class ReDubWatchy : public Watchy { //inherit and extend Watchy class
+  using Watchy::Watchy;
   public:
     void drawWatchFace() { //override this method to customize how the watch face looks
       
@@ -84,10 +85,10 @@ class WatchFace : public Watchy { //inherit and extend Watchy class
     }
 };
 
-WatchFace m; //instantiate your watchface
+ReDubWatchy watchy(settings); //instantiate your watchface
 
 void setup() {
-  m.init(); //call init in setup
+  watchy.init(); //call init in setup
 }
 
 void loop() {
